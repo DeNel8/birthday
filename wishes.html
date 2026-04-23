@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18 Wishes for Natasha ✨</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Dancing+Script:wght@500;700&family=Sriracha&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
+    <style>
+        .wishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .wcard {
+            background: white;
+            border: 3px solid var(--black);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 5px 5px 0 var(--black);
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .wcard.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .wcard:hover {
+            transform: translateY(-8px);
+            box-shadow: 10px 10px 0 var(--pink);
+        }
+
+        .wi {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .wt {
+            font-family: 'Playfair Display';
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wb {
+            color: var(--text-mid);
+            line-height: 1.6;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            border-radius: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            padding: 2rem 1rem;
+            margin: 2rem auto;
+            max-width: 1250px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+        }
+
+        @media (max-width: 768px) {
+            .wishes-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 1.5rem;
+                padding: 1.5rem 1rem;
+            }
+            .wcard {
+                padding: 1rem;
+            }
+            .wt {
+                font-size: 1.1rem;
+            }
+            .wb {
+                font-size: 0.9rem;
+            }
+            .sec-head {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="grid-bg">
+    <script src="decor.js"></script>
+
+    <!-- Header Stickers -->
+    <div class="sticker" style="top: 20px; left: 5%; transform: rotate(-15deg);">✨</div>
+    <div class="sticker" style="top: 50px; right: 5%; transform: rotate(10deg);">💫</div>
+    <div class="sticker" style="top: 130px; right: 2%; transform: rotate(-5deg);">💖</div>
+
+    <div class="page-container page-flip-in">
+        <header style="padding-top: 2rem; text-align: center;">
+            <h1 class="sec-head poppy-text"><span>1</span><span>8</span>
+                <span>W</span><span>i</span><span>s</span><span>h</span><span>e</span><span>s</span>
+                <span>f</span><span>o</span><span>r</span> <span>Y</span><span>o</span><span>u</span></h1>
+            <p style="color: var(--text-mid); font-size: 1.1rem;">One beautiful wish for every year you've graced this
+                earth.</p>
+            <div class="divl"></div>
+        </header>
+
+        <div class="glass-panel">
+            <main class="wishes-grid">
+            <!-- Wishes will be visible via JS -->
+            <div class="wcard">
+                <span class="wi">
+                    <div class="decor-fallback">🌟</div>
+                    <lord-icon src="https://cdn.lordicon.com/fkgpkmgu.json" trigger="loop" delay="1500"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:70px;height:70px;"></lord-icon>
+                </span>
+                <div class="wt">Endless Joy</div>
+                <div class="wb">May every morning bring you something to smile about.</div>
+            </div>
+            <div class="wcard">
+                <span class="wi">
+                    <div class="decor-fallback">🌺</div>
+                    <lord-icon src="https://cdn.lordicon.com/yxzbguun.json" trigger="loop" delay="2000"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:70px;height:70px;"></lord-icon>
+                </span>
+                <div class="wt">Glowing Health</div>
+                <div class="wb">May your body be strong and your mind always calm.</div>
+            </div>
+            <div class="wcard">
+                <span class="wi">
+                    <div class="decor-fallback">🚀</div>
+                    <lord-icon src="https://cdn.lordicon.com/qhgwaqzq.json" trigger="loop" delay="1000"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:70px;height:70px;"></lord-icon>
+                </span>
+                <div class="wt">Big Dreams</div>
+                <div class="wb">May every ambition you carry find wings this year.</div>
+            </div>
+            <div class="wcard">
+                <span class="wi">
+                    <div class="decor-fallback">🤝</div>
+                    <lord-icon src="https://cdn.lordicon.com/hursvjuz.json" trigger="loop" delay="3000"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:70px;height:70px;"></lord-icon>
+                </span>
+                <div class="wt">True Connection</div>
+                <div class="wb">May you always be surrounded by people who truly see you.</div>
+            </div>
+            <div class="wcard">
+                <span class="wi">
+                    <div class="decor-fallback">💫</div>
+                    <lord-icon src="https://cdn.lordicon.com/lupuorrc.json" trigger="loop" delay="1200"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:70px;height:70px;"></lord-icon>
+                </span>
+                <div class="wt">Sweet Surprises</div>
+                <div class="wb">May life bring you unexpected delights that make you gasp.</div>
+            </div>
+            <div class="wcard">
+                <span class="wi">
+                    <div class="decor-fallback">🕊️</div>
+                    <lord-icon src="https://cdn.lordicon.com/uoxruidk.json" trigger="loop" delay="2500"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:70px;height:70px;"></lord-icon>
+                </span>
+                <div class="wt">Inner Peace</div>
+                <div class="wb">May you find stillness in the storm and clarity in chaos.</div>
+            </div>
+            <div class="wcard">
+                <span class="wi">
+                    <div class="decor-fallback">🌍</div>
+                    <lord-icon src="https://cdn.lordicon.com/zzcjjvdy.json" trigger="loop" delay="1800"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:70px;height:70px;"></lord-icon>
+                </span>
+                <div class="wt">Beautiful Adventures</div>
+                <div class="wb">May you travel to places that take your breath away.</div>
+            </div>
+            <div class="wcard">
+                <span class="wi">
+                    <div class="decor-fallback">😂</div>
+                    <lord-icon src="https://cdn.lordicon.com/szuicvue.json" trigger="loop" delay="500"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:70px;height:70px;"></lord-icon>
+                </span>
+                <div class="wt">Belly Laughs</div>
+                <div class="wb">May you have moments where you laugh until you cry.</div>
+            </div>
+            <div class="wcard">
+                <span class="wi">
+                    <div class="decor-fallback">🏆</div>
+                    <lord-icon src="https://cdn.lordicon.com/pkvjqzyw.json" trigger="loop" delay="1000"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:70px;height:70px;"></lord-icon>
+                </span>
+                <div class="wt">Wild Success</div>
+                <div class="wb">May your hard work pay off in the most magical ways.</div>
+            </div>
+            <div class="wcard">
+                <span class="wi">
+                    <div class="decor-fallback">🦁</div>
+                    <lord-icon src="https://cdn.lordicon.com/iifdaovp.json" trigger="loop" delay="2200"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:70px;height:70px;"></lord-icon>
+                </span>
+                <div class="wt">Fierce Courage</div>
+                <div class="wb">May you be brave enough to ask for what you deserve.</div>
+            </div>
+            <div class="wcard">
+                <span class="wi">
+                    <div class="decor-fallback">💗</div>
+                    <lord-icon src="https://cdn.lordicon.com/pnhskoby.json" trigger="loop" delay="1400"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:70px;height:70px;"></lord-icon>
+                </span>
+                <div class="wt">Abundant Love</div>
+                <div class="wb">May you feel cherished and adored every single day.</div>
+            </div>
+            <div class="wcard">
+                <span class="wi">
+                    <div class="decor-fallback">📸</div>
+                    <lord-icon src="https://cdn.lordicon.com/rjzlnunf.json" trigger="loop" delay="1600"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:70px;height:70px;"></lord-icon>
+                </span>
+                <div class="wt">Perfect Memories</div>
+                <div class="wb">May we create moments this year we'll talk about forever.</div>
+            </div>
+            <div class="wcard">
+                <span class="wi">
+                    <div class="decor-fallback">🌱</div>
+                    <lord-icon src="https://cdn.lordicon.com/xyboiuun.json" trigger="loop" delay="1200"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:70px;height:70px;"></lord-icon>
+                </span>
+                <div class="wt">Constant Growth</div>
+                <div class="wb">May you learn, evolve, and become your best self.</div>
+            </div>
+            <div class="wcard">
+                <span class="wi">
+                    <div class="decor-fallback">✨</div>
+                    <lord-icon src="https://cdn.lordicon.com/dnmvpeqp.json" trigger="loop" delay="2000"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:70px;height:70px;"></lord-icon>
+                </span>
+                <div class="wt">Everyday Magic</div>
+                <div class="wb">May you see the beauty in the little, quiet things.</div>
+            </div>
+            <div class="wcard">
+                <span class="wi">
+                    <div class="decor-fallback">🌞</div>
+                    <lord-icon src="https://cdn.lordicon.com/ovkwbeot.json" trigger="loop" delay="1300"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:70px;height:70px;"></lord-icon>
+                </span>
+                <div class="wt">Warm Sunrises</div>
+                <div class="wb">May every new day feel like a fresh, beautiful start.</div>
+            </div>
+            <div class="wcard">
+                <span class="wi">
+                    <div class="decor-fallback">💪</div>
+                    <lord-icon src="https://cdn.lordicon.com/vovruidk.json" trigger="loop" delay="2400"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:70px;height:70px;"></lord-icon>
+                </span>
+                <div class="wt">Unbreakable Strength</div>
+                <div class="wb">May you know just how powerful you truly are.</div>
+            </div>
+            <div class="wcard">
+                <span class="wi">
+                    <div class="decor-fallback">🦉</div>
+                    <lord-icon src="https://cdn.lordicon.com/pncvlsur.json" trigger="loop" delay="2700"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:70px;height:70px;"></lord-icon>
+                </span>
+                <div class="wt">Deep Wisdom</div>
+                <div class="wb">May you always trust your intuition and your heart.</div>
+            </div>
+            <div class="wcard">
+                <span class="wi">
+                    <div class="decor-fallback">Guiding</div>
+                    <lord-icon src="https://cdn.lordicon.com/fitymtsy.json" trigger="loop" delay="3000"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:70px;height:70px;"></lord-icon>
+                </span>
+                <div class="wt">Guiding Light</div>
+                <div class="wb">May you always find your way back to happiness.</div>
+            </div>
+            </div>
+        </div>
+
+        <footer class="pfooter">
+            <button class="nav-btn btn-secondary" onclick="navigateTo('menu.html')">
+                <i class="fa-solid fa-bars"></i> Menu
+            </button>
+            <button class="nav-btn" onclick="navigateTo('reasons.html')">
+                18 Reasons <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </footer>
+    </div>
+
+    <script src="music.js"></script>
+    <script>
+        // Staggered reveal
+        document.querySelectorAll('.wcard').forEach((card, i) => {
+            setTimeout(() => {
+                card.classList.add('visible');
+            }, 300 + (i * 100));
+        });
+
+        document.querySelectorAll('.poppy-text span').forEach((span, i) => {
+            span.style.animationDelay = (i * 0.05) + 's';
+        });
+
+        // Floating Bubbles
+        function createBubbles() {
+            const container = document.body;
+            for (let i = 0; i < 15; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'floating-bubble';
+                const size = Math.random() * 60 + 20;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${Math.random() * 100}vw`;
+                bubble.style.setProperty('--x', `${(Math.random() - 0.5) * 200}px`);
+                bubble.style.setProperty('--d', `${Math.random() * 10 + 10}s`);
+                bubble.style.animationDelay = `${Math.random() * 5}s`;
+                container.appendChild(bubble);
+            }
+        }
+        createBubbles();
+
+        // Mouse Parallax for Stickers
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.02;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.02;
+            document.querySelectorAll('.sticker').forEach(sticker => {
+                sticker.style.transform = `translate(${moveX}px, ${moveY}px) rotate(${sticker.dataset.rot || '0'}deg)`;
+            });
+        });
+
+        // Add initial rotation to stickers for parallax
+        document.querySelectorAll('.sticker').forEach(sticker => {
+            const currentRotation = sticker.style.transform.match(/rotate\((.*)deg\)/);
+            if (currentRotation) sticker.dataset.rot = currentRotation[1];
+        });
+    </script>
+</body>
+
+</html>

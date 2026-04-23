@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18 Things I Love About You 💕</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Dancing+Script:wght@500;700&family=Sriracha&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .reasons-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 5% 5rem;
+        }
+
+        .reason-card {
+            background: white;
+            border: 3px solid var(--black);
+            border-radius: 50px;
+            padding: 12px 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 4px 4px 0 var(--pink-mid);
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s;
+        }
+
+        .reason-card:nth-child(even) {
+            flex-direction: row-reverse;
+            transform: translateX(40px);
+            text-align: right;
+            box-shadow: -4px 4px 0 var(--pink-mid);
+        }
+
+        .reason-card.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reason-num {
+            background: var(--pink);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Titan One';
+            font-size: 1.4rem;
+            border: 2px solid var(--black);
+            flex-shrink: 0;
+        }
+
+        .reason-text {
+            font-family: 'Playfair Display';
+            font-size: 1.3rem;
+            font-weight: 700;
+            flex-grow: 1;
+        }
+
+        .reason-text span {
+            display: block;
+            font-family: 'Sriracha';
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-mid);
+            margin-top: 4px;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            border-radius: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            padding: 2rem 1rem;
+            margin: 2rem auto;
+            max-width: 950px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+        }
+
+        @media (max-width: 768px) {
+            .reason-card {
+                flex-direction: column !important;
+                text-align: center !important;
+                padding: 20px;
+                border-radius: 30px;
+                gap: 10px;
+                transform: translateX(0) !important;
+            }
+            .reason-card:nth-child(even) {
+                box-shadow: 4px 4px 0 var(--pink-mid);
+            }
+            .reason-text {
+                font-size: 1.1rem;
+            }
+            .sec-head {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="grid-bg">
+    <script src="decor.js"></script>
+
+    <!-- Header Stickers -->
+    <div class="sticker" style="top: 20px; left: 8%; transform: rotate(-10deg);">💖</div>
+    <div class="sticker" style="top: 40px; right: 5%; transform: rotate(12deg);">🌷</div>
+
+    <div class="page-container page-flip-in">
+        <header style="padding-top: 2rem; text-align: center;">
+            <h1 class="sec-head poppy-text"><span>1</span><span>8</span>
+                <span>R</span><span>e</span><span>a</span><span>s</span><span>o</span><span>n</span><span>s</span>
+                <span>I</span> <span>L</span><span>o</span><span>v</span><span>e</span>
+                <span>Y</span><span>o</span><span>u</span></h1>
+            <p style="color: var(--text-mid); font-size: 1.1rem;">It was hard to pick just 18, but here is a start.</p>
+            <div class="divl"></div>
+        </header>
+
+        <div class="glass-panel">
+            <main class="reasons-list">
+            <div class="reason-card">
+                <div class="reason-num">1</div>
+                <div class="reason-icon" style="width: 60px; height: 60px; position: relative;">
+                    <div class="decor-fallback">😊</div>
+                    <lord-icon src="https://cdn.lordicon.com/jvhlhszd.json" trigger="loop" delay="1000"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:60px;height:60px;"></lord-icon>
+                </div>
+                <div class="reason-text">Your beautiful smile<span>It literally lights up my entire world.</span></div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">2</div>
+                <div class="reason-icon" style="width: 60px; height: 60px; position: relative;">
+                    <div class="decor-fallback">❤️</div>
+                    <lord-icon src="https://cdn.lordicon.com/unukghxb.json" trigger="loop" delay="1500"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:60px;height:60px;"></lord-icon>
+                </div>
+                <div class="reason-text">How deeply you care<span>You have the biggest heart of anyone I know.</span>
+                </div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">3</div>
+                <div class="reason-icon" style="width: 60px; height: 60px; position: relative;">
+                    <div class="decor-fallback">😂</div>
+                    <lord-icon src="https://cdn.lordicon.com/xcpufvgu.json" trigger="loop" delay="2000"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:60px;height:60px;"></lord-icon>
+                </div>
+                <div class="reason-text">Your sense of humor<span>You always know exactly how to make me laugh.</span>
+                </div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">4</div>
+                <div class="reason-icon" style="width: 60px; height: 60px; position: relative;">
+                    <div class="decor-fallback">🧠</div>
+                    <lord-icon src="https://cdn.lordicon.com/puvndmra.json" trigger="loop" delay="1200"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:60px;height:60px;"></lord-icon>
+                </div>
+                <div class="reason-text">Your intelligence<span>I love listening to you talk about things you
+                        love.</span></div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">5</div>
+                <div class="reason-icon" style="width: 60px; height: 60px; position: relative;">
+                    <div class="decor-fallback">🛡️</div>
+                    <lord-icon src="https://cdn.lordicon.com/mgsiaaqf.json" trigger="loop" delay="2500"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:60px;height:60px;"></lord-icon>
+                </div>
+                <div class="reason-text">How safe you make me feel<span>With you, I am always entirely myself.</span>
+                </div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">6</div>
+                <div class="reason-icon" style="width: 60px; height: 60px; position: relative;">
+                    <div class="decor-fallback">☀️</div>
+                    <lord-icon src="https://cdn.lordicon.com/wlofgisq.json" trigger="loop" delay="1800"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:60px;height:60px;"></lord-icon>
+                </div>
+                <div class="reason-text">Your endless warmth<span>You treat everyone with such kindness.</span></div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">7</div>
+                <div class="reason-icon" style="width: 60px; height: 60px; position: relative;">
+                    <div class="decor-fallback">👀</div>
+                    <lord-icon src="https://cdn.lordicon.com/fvjbmzvh.json" trigger="loop" delay="3000"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:60px;height:60px;"></lord-icon>
+                </div>
+                <div class="reason-text">Your gorgeous eyes<span>I could get lost in them for hours.</span></div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">8</div>
+                <div class="reason-icon" style="width: 60px; height: 60px; position: relative;">
+                    <div class="decor-fallback">🤝</div>
+                    <lord-icon src="https://cdn.lordicon.com/slkvcfon.json" trigger="loop" delay="2200"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:60px;height:60px;"></lord-icon>
+                </div>
+                <div class="reason-text">The way you support me<span>You are my biggest cheerleader in life.</span>
+                </div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">9</div>
+                <div class="reason-icon" style="width: 60px; height: 60px; position: relative;">
+                    <div class="decor-fallback">👗</div>
+                    <lord-icon src="https://cdn.lordicon.com/vixtbyon.json" trigger="loop" delay="1400"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:60px;height:60px;"></lord-icon>
+                </div>
+                <div class="reason-text">Your amazing style<span>You always look so effortlessly perfect.</span></div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">10</div>
+                <div class="reason-icon" style="width: 60px; height: 60px; position: relative;">
+                    <div class="decor-fallback">⛰️</div>
+                    <lord-icon src="https://cdn.lordicon.com/hgzzuulm.json" trigger="loop" delay="1600"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:60px;height:60px;"></lord-icon>
+                </div>
+                <div class="reason-text">Your resilience<span>You never give up, no matter what happens.</span></div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">11</div>
+                <div class="reason-icon" style="width: 60px; height: 60px; position: relative;">
+                    <div class="decor-fallback">✨</div>
+                    <lord-icon src="https://cdn.lordicon.com/lsrxhzsy.json" trigger="loop" delay="1200"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:60px;height:60px;"></lord-icon>
+                </div>
+                <div class="reason-text">Your cute little habits<span>All those tiny things you do that you don't even
+                        notice.</span></div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">12</div>
+                <div class="reason-icon" style="width: 60px; height: 60px; position: relative;">
+                    <div class="decor-fallback">🔥</div>
+                    <lord-icon src="https://cdn.lordicon.com/igljvjtq.json" trigger="loop" delay="2000"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:60px;height:60px;"></lord-icon>
+                </div>
+                <div class="reason-text">Your passion<span>When you love something, you love it completely.</span></div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">13</div>
+                <div class="reason-icon" style="width: 60px; height: 60px; position: relative;">
+                    <div class="decor-fallback">🎶</div>
+                    <lord-icon src="https://cdn.lordicon.com/aympxpuv.json" trigger="loop" delay="1300"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:60px;height:60px;"></lord-icon>
+                </div>
+                <div class="reason-text">The way you say my name<span>It's my absolute favorite sound.</span></div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">14</div>
+                <div class="reason-icon" style="width: 60px; height: 60px; position: relative;">
+                    <div class="decor-fallback">🎨</div>
+                    <lord-icon src="https://cdn.lordicon.com/abpuxpuv.json" trigger="loop" delay="2400"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:60px;height:60px;"></lord-icon>
+                </div>
+                <div class="reason-text">Your creativity<span>Your mind works in such beautiful ways.</span></div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">15</div>
+                <div class="reason-icon" style="width: 60px; height: 60px; position: relative;">
+                    <div class="decor-fallback">⏳</div>
+                    <lord-icon src="https://cdn.lordicon.com/mreigpbi.json" trigger="loop" delay="2700"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:60px;height:60px;"></lord-icon>
+                </div>
+                <div class="reason-text">How patient you are<span>You always give me grace when I need it.</span></div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">16</div>
+                <div class="reason-icon" style="width: 60px; height: 60px; position: relative;">
+                    <div class="decor-fallback">🎉</div>
+                    <lord-icon src="https://cdn.lordicon.com/xhefaydg.json" trigger="loop" delay="3000"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:60px;height:60px;"></lord-icon>
+                </div>
+                <div class="reason-text">Your vibrant energy<span>You bring life to every room you walk into.</span>
+                </div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">17</div>
+                <div class="reason-icon" style="width: 60px; height: 60px; position: relative;">
+                    <div class="decor-fallback">🗣️</div>
+                    <lord-icon src="https://cdn.lordicon.com/fpipqvgu.json" trigger="loop" delay="1500"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:60px;height:60px;"></lord-icon>
+                </div>
+                <div class="reason-text">Your sweet voice<span>It is instantly calming to me.</span></div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">18</div>
+                <div class="reason-icon" style="width: 60px; height: 60px; position: relative;">
+                    <div class="decor-fallback">🌸</div>
+                    <lord-icon src="https://cdn.lordicon.com/vkfpgmru.json" trigger="loop" delay="1000"
+                        colors="primary:#1a1010,secondary:#FF7882" style="width:60px;height:60px;"></lord-icon>
+                </div>
+                <div class="reason-text">Just being YOU<span>There is no one else like you, Natasha.</span></div>
+            </div>
+            </main>
+        </div>
+
+        <footer class="pfooter">
+            <button class="nav-btn btn-secondary" onclick="navigateTo('menu.html')">
+                <i class="fa-solid fa-bars"></i> Menu
+            </button>
+            <button class="nav-btn" onclick="navigateTo('letter.html')">
+                Read My Letter <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </footer>
+    </div>
+
+    <script src="music.js"></script>
+    <script>
+        document.querySelectorAll('.reason-card').forEach((card, i) => {
+            setTimeout(() => {
+                card.classList.add('visible');
+            }, 300 + (i * 120));
+        });
+
+        document.querySelectorAll('.poppy-text span').forEach((span, i) => {
+            span.style.animationDelay = (i * 0.05) + 's';
+        });
+
+        // Floating Bubbles
+        function createBubbles() {
+            const container = document.body;
+            for (let i = 0; i < 15; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'floating-bubble';
+                const size = Math.random() * 60 + 20;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${Math.random() * 100}vw`;
+                bubble.style.setProperty('--x', `${(Math.random() - 0.5) * 200}px`);
+                bubble.style.setProperty('--d', `${Math.random() * 10 + 10}s`);
+                bubble.style.animationDelay = `${Math.random() * 5}s`;
+                container.appendChild(bubble);
+            }
+        }
+        createBubbles();
+
+        // Mouse Parallax for Stickers
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.02;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.02;
+            document.querySelectorAll('.sticker').forEach(sticker => {
+                sticker.style.transform = `translate(${moveX}px, ${moveY}px) rotate(${sticker.dataset.rot || '0'}deg)`;
+            });
+        });
+
+        // Add initial rotation to stickers for parallax
+        document.querySelectorAll('.sticker').forEach(sticker => {
+            const currentRotation = sticker.style.transform.match(/rotate\((.*)deg\)/);
+            if (currentRotation) sticker.dataset.rot = currentRotation[1];
+        });
+    </script>
+</body>
+
+</html>

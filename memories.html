@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natasha's Memories 📸</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Dancing+Script:wght@500;700&family=Sriracha&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .memories-wrap {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 5rem 5% 8rem;
+        }
+
+        .polaroid-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 15px 15px 50px;
+            border: 3px solid var(--black);
+            box-shadow: 6px 6px 0 var(--black);
+            transform: rotate(var(--rot));
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            opacity: 0;
+            transform: translateY(40px) rotate(var(--rot));
+        }
+
+        .polaroid.visible {
+            opacity: 1;
+            transform: translateY(0) rotate(var(--rot));
+        }
+
+        .polaroid:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            box-shadow: 12px 12px 0 var(--pink);
+            z-index: 10;
+        }
+
+        .pol-media {
+            width: 100%;
+            aspect-ratio: 1;
+            background: var(--pink-light);
+            border: 2px solid var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-size: 3rem;
+        }
+
+        .pol-media img,
+        .pol-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pol-cap {
+            position: absolute;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-family: 'Dancing Script';
+            font-size: 1.4rem;
+            color: var(--text-dark);
+        }
+
+        .video-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid white;
+            font-size: 0.9rem;
+        }
+
+        .celebrate-btn {
+            background: var(--pink);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            border: 4px solid var(--black);
+            cursor: pointer;
+            box-shadow: 5px 5px 0 var(--black);
+            margin-top: 4rem;
+            transition: all 0.2s;
+        }
+
+        .celebrate-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 8px 8px 0 var(--black);
+        }
+        @media (max-width: 768px) {
+            .polaroid-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 1.5rem;
+                padding: 1rem;
+            }
+            .polaroid {
+                padding: 8px 8px 30px;
+                width: 100%;
+            }
+            .pol-cap {
+                font-size: 0.9rem;
+            }
+            .video-tag {
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
+            }
+            .sec-head {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="grid-bg">
+    <script src="decor.js"></script>
+
+    <!-- Custom Stickers in Header Area -->
+    <div class="sticker" style="top: 20px; left: 5%; transform: rotate(-15deg);">🌸</div>
+    <div class="sticker" style="top: 50px; right: 10%; transform: rotate(10deg);">✨</div>
+    <div class="sticker" style="top: 150px; left: 2%; transform: rotate(-5deg);">🎀</div>
+
+    <div class="page-container page-flip-in">
+        <div class="memories-wrap" style="padding-top: 2rem;">
+            <header style="text-align: center; position: relative;">
+                <h1 class="sec-head poppy-text"><span>O</span><span>u</span><span>r</span>
+                    <span>M</span><span>e</span><span>m</span><span>o</span><span>r</span><span>i</span><span>e</span><span>s</span>
+                </h1>
+                <p style="color: var(--text-mid);">Every single moment is a treasure, Natasha.</p>
+                <div class="divl"></div>
+            </header>
+
+            <main class="polaroid-grid">
+                <!-- 51 Unique Polaroids (24 Photos + 27 Videos) -->
+
+                <div class="polaroid" style="--rot:-1deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-22 at 15.35.54.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Happy Times 🎬</div>
+                </div>
+                <div class="polaroid" style="--rot:4deg;">
+                    <div class="pol-media"><img src="assets/pic 1.jpeg" alt="Memory"></div>
+                    <div class="pol-cap">Always glowing ✨</div>
+                </div>
+                <div class="polaroid" style="--rot:-2deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-22 at 15.35.57.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Unforgettable 🎬</div>
+                </div>
+                <div class="polaroid" style="--rot:3deg;">
+                    <div class="pol-media"><img src="assets/pic 2.jpeg" alt="Memory"></div>
+                    <div class="pol-cap">Pure love 💗</div>
+                </div>
+                <div class="polaroid" style="--rot:-3deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-23 at 14.15.05.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Video Clip 15 🎥</div>
+                </div>
+                <div class="polaroid" style="--rot:1deg;">
+                    <div class="pol-media"><img src="assets/pic 3.jpeg" alt="Memory"></div>
+                    <div class="pol-cap">She's a star ⭐</div>
+                </div>
+                <div class="polaroid" style="--rot:2deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-23 at 14.14.38.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Video Clip 8 🎥</div>
+                </div>
+                <div class="polaroid" style="--rot:4deg;">
+                    <div class="pol-media"><img src="assets/WhatsApp Image 2026-04-22 at 15.35.50 (1).jpeg"
+                            alt="Memory"></div>
+                    <div class="pol-cap">Beautiful Day 📸</div>
+                </div>
+                <div class="polaroid" style="--rot:-4deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-23 at 14.14.21.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Video Clip 1 🎥</div>
+                </div>
+                <div class="polaroid" style="--rot:-3deg;">
+                    <div class="pol-media"><img src="assets/pic 4.jpeg" alt="Memory"></div>
+                    <div class="pol-cap">So Pretty 💖</div>
+                </div>
+                <div class="polaroid" style="--rot:1deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-22 at 15.35.58.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Funny Moments 🎬</div>
+                </div>
+                <div class="polaroid" style="--rot:2deg;">
+                    <div class="pol-media"><img src="assets/WhatsApp Image 2026-04-22 at 15.35.50.jpeg" alt="Memory">
+                    </div>
+                    <div class="pol-cap">Wonderful Day 🌸</div>
+                </div>
+                <div class="polaroid" style="--rot:4deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-22 at 15.35.48.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Her cute laugh 🥺</div>
+                </div>
+                <div class="polaroid" style="--rot:-2deg;">
+                    <div class="pol-media"><img src="assets/WhatsApp Image 2026-04-22 at 15.35.55.jpeg" alt="Memory">
+                    </div>
+                    <div class="pol-cap">Lovely Smile 😊</div>
+                </div>
+                <div class="polaroid" style="--rot:3deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-22 at 15.35.56.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Special Video 🎬</div>
+                </div>
+                <div class="polaroid" style="--rot:1deg;">
+                    <div class="pol-media"><img src="assets/WhatsApp Image 2026-04-22 at 15.35.58.jpeg" alt="Memory">
+                    </div>
+                    <div class="pol-cap">Treasured Moment 🎬</div>
+                </div>
+                <div class="polaroid" style="--rot:-4deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-23 at 14.14.36.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Video Clip 7 🎥</div>
+                </div>
+                <div class="polaroid" style="--rot:3deg;">
+                    <div class="pol-media"><img src="assets/WhatsApp Image 2026-04-23 at 14.14.23.jpeg" alt="Memory">
+                    </div>
+                    <div class="pol-cap">Magic Moments ✨</div>
+                </div>
+                <div class="polaroid" style="--rot:2deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-23 at 14.14.23.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Video Clip 2 🎥</div>
+                </div>
+                <div class="polaroid" style="--rot:-4deg;">
+                    <div class="pol-media"><img src="assets/WhatsApp Image 2026-04-23 at 14.14.33.jpeg" alt="Memory">
+                    </div>
+                    <div class="pol-cap">Sweet Surprise 🎁</div>
+                </div>
+                <div class="polaroid" style="--rot:-3deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-22 at 15.35.49.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">That one day 🌷</div>
+                </div>
+                <div class="polaroid" style="--rot:2deg;">
+                    <div class="pol-media"><img src="assets/WhatsApp Image 2026-04-23 at 14.14.34.jpeg" alt="Memory">
+                    </div>
+                    <div class="pol-cap">Golden Hour 🌅</div>
+                </div>
+                <div class="polaroid" style="--rot:1deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-23 at 14.14.32.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Video Clip 4 🎥</div>
+                </div>
+                <div class="polaroid" style="--rot:-1deg;">
+                    <div class="pol-media"><img src="assets/WhatsApp Image 2026-04-23 at 14.14.35.jpeg" alt="Memory">
+                    </div>
+                    <div class="pol-cap">Dreamy Day ☁️</div>
+                </div>
+                <div class="polaroid" style="--rot:-2deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-23 at 14.14.33.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Video Clip 5 🎥</div>
+                </div>
+                <div class="polaroid" style="--rot:3deg;">
+                    <div class="pol-media"><img src="assets/WhatsApp Image 2026-04-23 at 14.14.37.jpeg" alt="Memory">
+                    </div>
+                    <div class="pol-cap">Sparkle ✨</div>
+                </div>
+                <div class="polaroid" style="--rot:-3deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-23 at 14.14.27.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Video Clip 3 🎥</div>
+                </div>
+                <div class="polaroid" style="--rot:-2deg;">
+                    <div class="pol-media"><img src="assets/WhatsApp Image 2026-04-23 at 14.14.41.jpeg" alt="Memory">
+                    </div>
+                    <div class="pol-cap">Love Always 💕</div>
+                </div>
+                <div class="polaroid" style="--rot:2deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-22 at 15.35.52.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Sweet Moment 🎬</div>
+                </div>
+                <div class="polaroid" style="--rot:1deg;">
+                    <div class="pol-media"><img src="assets/WhatsApp Image 2026-04-23 at 14.14.43.jpeg" alt="Memory">
+                    </div>
+                    <div class="pol-cap">Perfect View 🎀</div>
+                </div>
+                <div class="polaroid" style="--rot:3deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-23 at 14.14.34.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Video Clip 6 🎥</div>
+                </div>
+                <div class="polaroid" style="--rot:-3deg;">
+                    <div class="pol-media"><img src="assets/WhatsApp Image 2026-04-23 at 14.15.00.jpeg" alt="Memory">
+                    </div>
+                    <div class="pol-cap">Happy Vibes 🎈</div>
+                </div>
+                <div class="polaroid" style="--rot:-3deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-23 at 14.14.39.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Video Clip 9 🎥</div>
+                </div>
+                <div class="polaroid" style="--rot:4deg;">
+                    <div class="pol-media"><img src="assets/WhatsApp Image 2026-04-23 at 14.15.51.jpeg" alt="Memory">
+                    </div>
+                    <div class="pol-cap">Cute Times 🍬</div>
+                </div>
+                <div class="polaroid" style="--rot:1deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-23 at 14.14.40.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Video Clip 10 🎥</div>
+                </div>
+                <div class="polaroid" style="--rot:-2deg;">
+                    <div class="pol-media"><img src="assets/WhatsApp Image 2026-04-23 at 14.16.00 (1).jpeg"
+                            alt="Memory"></div>
+                    <div class="pol-cap">Special Memory 🌷</div>
+                </div>
+                <div class="polaroid" style="--rot:-2deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-23 at 14.14.42.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Video Clip 11 🎥</div>
+                </div>
+                <div class="polaroid" style="--rot:1deg;">
+                    <div class="pol-media"><img src="assets/WhatsApp Image 2026-04-23 at 14.16.00.jpeg" alt="Memory">
+                    </div>
+                    <div class="pol-cap">Glow Girl 💅</div>
+                </div>
+                <div class="polaroid" style="--rot:3deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-23 at 14.14.44.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Video Clip 12 🎥</div>
+                </div>
+                <div class="polaroid" style="--rot:3deg;">
+                    <div class="pol-media"><img src="assets/pic 5.jpeg" alt="Memory"></div>
+                    <div class="pol-cap">Party Mode 🥳</div>
+                </div>
+                <div class="polaroid" style="--rot:-4deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-23 at 14.14.47.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Video Clip 13 🎥</div>
+                </div>
+                <div class="polaroid" style="--rot:-4deg;">
+                    <div class="pol-media"><img src="assets/pic 6.jpeg" alt="Memory"></div>
+                    <div class="pol-cap">Stunning 🌟</div>
+                </div>
+                <div class="polaroid" style="--rot:2deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-23 at 14.14.58.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Video Clip 14 🎥</div>
+                </div>
+                <div class="polaroid" style="--rot:2deg;">
+                    <div class="pol-media"><img src="assets/pic 7.jpeg" alt="Memory"></div>
+                    <div class="pol-cap">Puppy Love 🐶</div>
+                </div>
+                <div class="polaroid" style="--rot:1deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-23 at 14.15.48.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Video Clip 16 🎥</div>
+                </div>
+                <div class="polaroid" style="--rot:-1deg;">
+                    <div class="pol-media"><img src="assets/pic 8.jpeg" alt="Memory"></div>
+                    <div class="pol-cap">Aesthetic Queen 👑</div>
+                </div>
+                <div class="polaroid" style="--rot:-2deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-23 at 14.15.49.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Video Clip 17 🎥</div>
+                </div>
+                <div class="polaroid" style="--rot:3deg;">
+                    <div class="pol-media"><img src="assets/pic 9.jpeg" alt="Memory"></div>
+                    <div class="pol-cap">You've Got Mail! 💌</div>
+                </div>
+                <div class="polaroid" style="--rot:3deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-23 at 14.15.50.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Video Clip 18 🎥</div>
+                </div>
+                <div class="polaroid" style="--rot:-4deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-23 at 14.15.59.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Video Clip 19 🎥</div>
+                </div>
+                <div class="polaroid" style="--rot:2deg;">
+                    <div class="video-tag"><i class="fa-solid fa-play"></i></div>
+                    <div class="pol-media"><video src="assets/WhatsApp Video 2026-04-23 at 14.16.02.mp4" loop
+                            muted playsinline preload="metadata"></video></div>
+                    <div class="pol-cap">Video Clip 20 🎥</div>
+                </div>
+            </main>
+
+            <div style="text-align: center;">
+                <button class="celebrate-btn" onclick="celebrate()">
+                    Celebrate Natasha! 🎊
+                </button>
+            </div>
+
+            <footer class="pfooter">
+                <button class="nav-btn btn-secondary" onclick="navigateTo('menu.html')">
+                    <i class="fa-solid fa-bars"></i> Menu
+                </button>
+                <button class="nav-btn" onclick="navigateTo('index.html')">
+                    <i class="fa-solid fa-house"></i> Home
+                </button>
+            </footer>
+        </div>
+    </div>
+
+    <script src="music.js"></script>
+    <script>
+        document.querySelectorAll('.polaroid').forEach((p, i) => {
+            setTimeout(() => {
+                p.classList.add('visible');
+            }, 300 + (i * 100));
+        });
+
+        function celebrate() {
+            createConfetti();
+            setTimeout(() => {
+                alert("Happy 18th Birthday Natasha! You are loved! ❤️");
+            }, 500);
+        }
+
+        function createConfetti() {
+            const colors = ['#FF7882', '#feecea', '#d4a96a', '#ffffff', '#ffd6d9'];
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = Math.random() * 8 + 5 + 'px';
+                confetti.style.height = confetti.style.width;
+                confetti.style.animation = `confetti-fall ${Math.random() * 2 + 2}s linear forwards`;
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 4000);
+            }
+        }
+
+        document.querySelectorAll('.poppy-text span').forEach((span, i) => {
+            span.style.animationDelay = (i * 0.05) + 's';
+        });
+
+        // Floating Bubbles - Optimized count
+        function createBubbles() {
+            const container = document.body;
+            for (let i = 0; i < 8; i++) { // Reduced count from 15 to 8 for performance
+                const bubble = document.createElement('div');
+                bubble.className = 'floating-bubble';
+                const size = Math.random() * 60 + 20;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${Math.random() * 100}vw`;
+                bubble.style.setProperty('--x', `${(Math.random() - 0.5) * 200}px`);
+                bubble.style.setProperty('--d', `${Math.random() * 10 + 10}s`);
+                bubble.style.animationDelay = `${Math.random() * 5}s`;
+                bubble.style.willChange = 'transform'; // Hardware acceleration
+                container.appendChild(bubble);
+            }
+        }
+        createBubbles();
+
+        // Mouse Parallax for Stickers - Throttled & Cached
+        const stickers = document.querySelectorAll('.sticker');
+        stickers.forEach(sticker => {
+            const currentRotation = sticker.style.transform.match(/rotate\((.*)deg\)/);
+            if (currentRotation) sticker.dataset.rot = currentRotation[1];
+            sticker.style.willChange = 'transform'; // Hint GPU
+        });
+
+        let ticking = false;
+        document.addEventListener('mousemove', (e) => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const moveX = (e.clientX - window.innerWidth / 2) * 0.015;
+                    const moveY = (e.clientY - window.innerHeight / 2) * 0.015;
+                    stickers.forEach(sticker => {
+                        sticker.style.transform = `translate(${moveX}px, ${moveY}px) rotate(${sticker.dataset.rot || '0'}deg)`;
+                    });
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    </script>
+</body>
+
+</html>

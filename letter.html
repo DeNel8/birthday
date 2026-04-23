@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Letter for Natasha 💌</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Dancing+Script:wght@500;700&family=Sriracha&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .letter-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 5rem 5% 6rem;
+        }
+
+        .letter-card {
+            background: #fff8e4;
+            border: 3px solid var(--black);
+            border-radius: 20px;
+            padding: 4rem;
+            box-shadow: 8px 8px 0 var(--black);
+            position: relative;
+            min-height: 400px;
+            overflow: hidden;
+        }
+
+        .letter-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 60px; bottom: 0;
+            width: 2px;
+            background: rgba(255, 120, 130, 0.2);
+        }
+
+        .letter-to {
+            font-family: 'Playfair Display';
+            font-style: italic;
+            font-size: 1.8rem;
+            color: var(--pink);
+            margin-bottom: 2rem;
+        }
+
+        .letter-body {
+            font-family: 'Dancing Script';
+            font-size: 1.6rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            white-space: pre-wrap;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.2em;
+            background: var(--pink);
+            margin-left: 5px;
+            animation: blink 0.8s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink { 50% { opacity: 0; } }
+
+        .sig {
+            text-align: right;
+            margin-top: 3rem;
+            font-family: 'Dancing Script';
+            font-size: 2rem;
+            color: var(--gold);
+            opacity: 0;
+            transition: opacity 1s;
+        }
+    </style>
+</head>
+<body class="grid-bg">
+    <script src="decor.js"></script>
+
+    <!-- Header Stickers -->
+    <div class="sticker" style="top: 20px; left: 10%; transform: rotate(-10deg);">🕊️</div>
+    <div class="sticker" style="top: 40px; right: 8%; transform: rotate(15deg);">💌</div>
+
+    <div class="page-container page-flip-in">
+        <div class="letter-wrap" style="padding-top: 2rem;">
+            <h1 class="sec-head poppy-text" style="margin-bottom: 3rem;"><span>A</span> <span>L</span><span>e</span><span>t</span><span>t</span><span>e</span><span>r</span> <span>F</span><span>o</span><span>r</span> <span>Y</span><span>o</span><span>u</span></h1>
+            
+            <div class="letter-card">
+                <div class="letter-to">Dear Natasha,</div>
+                <div class="letter-body" id="letterText"><span class="cursor"></span></div>
+                <div class="sig" id="sigText">— With all my love, your boyfriend Derrick Nelson 🌸</div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="btn-main" id="startBtn" onclick="typeLetter()">
+                    <i class="fa-solid fa-pen-fancy"></i> Read the Letter
+                </button>
+            </div>
+
+            <footer class="pfooter">
+                <button class="nav-btn btn-secondary" onclick="navigateTo('menu.html')">
+                    <i class="fa-solid fa-bars"></i> Menu
+                </button>
+                <button class="nav-btn" onclick="navigateTo('mailbox.html')">
+                    My Mailbox <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </footer>
+        </div>
+    </div>
+
+    <script src="music.js"></script>
+    <script>
+        const TEXT = "The day you came into my life was one of the best days. I did not realise it at first — but day by day, you became closer to my heart. And now you are truly someone I treasure deeply.\n\nI wish I could take away every pain you carry alone. But know this: you are never truly alone. You can always talk any time, about anything, especially the things you cannot say to others.\n\nThis year, as you turn 18, may all your dreams come true. May laughter find you often. May love surround you always.\n\nDon't be sad, okay? Be happy sleepy head 😌 You deserve every single beautiful thing.";
+        
+        let i = 0;
+        const speed = 40;
+        const letterEl = document.getElementById('letterText');
+        const cursor = letterEl.querySelector('.cursor');
+
+        function typeLetter() {
+            document.getElementById('startBtn').style.display = 'none';
+            const interval = setInterval(() => {
+                if (i < TEXT.length) {
+                    const char = TEXT[i++];
+                    if (char === '\n') {
+                        cursor.insertAdjacentHTML('beforebegin', '<br>');
+                    } else {
+                        const span = document.createElement('span');
+                        span.textContent = char;
+                        span.className = 'poppy-char'; // We could add bounce here
+                        cursor.insertAdjacentElement('beforebegin', span);
+                    }
+                } else {
+                    clearInterval(interval);
+                    document.getElementById('sigText').style.opacity = '1';
+                }
+            }, speed);
+        }
+
+        document.querySelectorAll('.poppy-text span').forEach((span, i) => {
+            span.style.animationDelay = (i * 0.05) + 's';
+        });
+
+        // Floating Bubbles
+        function createBubbles() {
+            const container = document.body;
+            for (let i = 0; i < 15; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'floating-bubble';
+                const size = Math.random() * 60 + 20;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${Math.random() * 100}vw`;
+                bubble.style.setProperty('--x', `${(Math.random() - 0.5) * 200}px`);
+                bubble.style.setProperty('--d', `${Math.random() * 10 + 10}s`);
+                bubble.style.animationDelay = `${Math.random() * 5}s`;
+                container.appendChild(bubble);
+            }
+        }
+        createBubbles();
+
+        // Mouse Parallax for Stickers
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.02;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.02;
+            document.querySelectorAll('.sticker').forEach(sticker => {
+                sticker.style.transform = `translate(${moveX}px, ${moveY}px) rotate(${sticker.dataset.rot || '0'}deg)`;
+            });
+        });
+
+        // Add initial rotation to stickers for parallax
+        document.querySelectorAll('.sticker').forEach(sticker => {
+            const currentRotation = sticker.style.transform.match(/rotate\((.*)deg\)/);
+            if (currentRotation) sticker.dataset.rot = currentRotation[1];
+        });
+    </script>
+</body>
+</html>

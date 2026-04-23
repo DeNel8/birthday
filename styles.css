@@ -1,0 +1,430 @@
+/* ─── GLOBAL DESIGN SYSTEM ─── */
+:root {
+    --pink: #FF7882;
+    --pink-dark: #e0505e;
+    --pink-light: #feecea;
+    --pink-mid: #ffd6d9;
+    --cream: #fffaf5;
+    --warm: #fff3ee;
+    --gold: #d4a96a;
+    --text-dark: #2e1f1f;
+    --text-mid: #6b4a4a;
+    --white: #ffffff;
+    --black: #1a1010;
+    --glow: rgba(255, 120, 130, 0.6);
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Sriracha', cursive;
+    background: var(--cream);
+    color: var(--text-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+    perspective: 1500px; /* For book flip */
+    font-size: clamp(14px, 2vw, 18px); /* Fluid typography */
+}
+
+/* ─── ACCESSIBILITY & MOBILE OPTIMIZATIONS ─── */
+:focus {
+    outline: 3px solid var(--pink);
+    outline-offset: 4px;
+}
+
+button {
+    min-height: 44px; /* Minimum tap target */
+    min-width: 44px;
+    touch-action: manipulation;
+}
+
+/* ─── BOOK FLIP TRANSITIONS ─── */
+.page-container {
+    min-height: 100vh;
+    width: 100%;
+    transform-origin: left center;
+    transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.6s;
+    background: transparent; /* Changed to show grid-bg from body */
+    position: relative;
+    z-index: 1;
+}
+
+.page-flip-out {
+    transform: rotateY(-90deg);
+    opacity: 0;
+}
+
+.page-flip-in {
+    animation: flipIn 0.8s forwards cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes flipIn {
+    from {
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+    to {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+/* ─── FLOATING ANIMATIONS ─── */
+.floating-decor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 100;
+}
+
+@keyframes floatAround {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(30px, -50px) rotate(5deg); }
+    66% { transform: translate(-20px, 30px) rotate(-5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.float-1 { top: 10%; left: 10%; animation: floatAround 8s infinite ease-in-out; }
+.float-2 { top: 70%; left: 80%; animation: floatAround 10s infinite ease-in-out; }
+.float-3 { top: 40%; left: 5%; animation: floatAround 12s infinite ease-in-out 1s; }
+.float-4 { top: 15%; left: 85%; animation: floatAround 9s infinite ease-in-out 2s; }
+
+.decor-fallback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ─── POPPY TEXT ANIMATIONS ─── */
+.poppy-text span {
+    display: inline-block;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: popIn 0.5s forwards cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ─── GRID BACKGROUND (SCRAPBOOK STYLE) ─── */
+.grid-bg {
+    background-color: var(--pink-light);
+    background-image:
+        linear-gradient(0deg, transparent 24%, rgba(255, 120, 130, .3) 25%, rgba(255, 120, 130, .3) 26%, transparent 27%, transparent 74%, rgba(255, 120, 130, .3) 75%, rgba(255, 120, 130, .3) 76%, transparent 77%),
+        linear-gradient(90deg, transparent 24%, rgba(255, 120, 130, .3) 25%, rgba(255, 120, 130, .3) 26%, transparent 27%, transparent 74%, rgba(255, 120, 130, .3) 75%, rgba(255, 120, 130, .3) 76%, transparent 77%);
+    background-size: 80px 80px;
+    position: relative;
+}
+
+.grid-bg::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, transparent, rgba(255, 250, 245, 0.4));
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ─── AESTHETIC ENHANCEMENTS ─── */
+.glow-pulse {
+    animation: glowPulse 3s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 10px var(--glow), 4px 4px 0 var(--black); }
+    50% { box-shadow: 0 0 25px var(--glow), 4px 4px 0 var(--black); }
+}
+
+.floating-hero {
+    animation: heroFloat 5s infinite ease-in-out;
+}
+
+@keyframes heroFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+.paper-note {
+    background: #fff;
+    padding: 20px;
+    position: relative;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    transform: rotate(-1deg);
+}
+
+.paper-note::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(transparent, transparent 24px, #e5e5e5 24px, #e5e5e5 25px);
+    z-index: -1;
+}
+
+.sparkle-trail {
+    position: fixed;
+    pointer-events: none;
+    width: 10px;
+    height: 10px;
+    background: var(--pink);
+    border-radius: 50%;
+    z-index: 9999;
+    animation: sparkleFade 0.8s forwards;
+}
+
+@keyframes sparkleFade {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+/* ─── NEW PREMIUM EFFECTS ─── */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 40px;
+    padding: 3rem 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.css-badge {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--pink-mid) 0%, transparent 70%);
+    border: 8px dashed var(--pink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: rotateBadge 20s linear infinite, glowPulse 3s infinite ease-in-out;
+    position: relative;
+}
+
+@keyframes rotateBadge {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.badge-text {
+    font-family: 'Titan One';
+    font-size: 6rem;
+    color: var(--white);
+    text-shadow: 5px 5px 0 var(--black), -2px -2px 0 var(--black), 2px -2px 0 var(--black), -2px 2px 0 var(--black);
+    animation: counterRotate 20s linear infinite;
+    z-index: 2;
+}
+
+@keyframes counterRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+.floating-bubble {
+    position: fixed;
+    border-radius: 50%;
+    background: rgba(255, 120, 130, 0.15);
+    pointer-events: none;
+    z-index: 0;
+    animation: floatBubble var(--d) linear infinite;
+    bottom: -100px;
+}
+
+@keyframes floatBubble {
+    0% { transform: translateY(0) translateX(0); opacity: 0; }
+    20% { opacity: 0.8; }
+    100% { transform: translateY(-110vh) translateX(var(--x)); opacity: 0; }
+}
+
+.parallax-decor {
+    transition: transform 0.1s ease-out;
+}
+/*.grid-bg::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.5;
+    z-index: -1;
+}*/
+
+/* ─── BUTTONS ─── */
+.btn-main, .nav-btn {
+    background: var(--pink);
+    border: 3px solid var(--black);
+    border-radius: 50px;
+    padding: 12px 28px;
+    font-family: 'Sriracha', cursive;
+    font-size: 1.1rem;
+    color: var(--white);
+    cursor: pointer;
+    box-shadow: 4px 4px 0 var(--black);
+    transition: transform .15s, box-shadow .15s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-main:hover, .nav-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--black);
+}
+
+.btn-secondary {
+    background: var(--white);
+    color: var(--text-dark);
+}
+
+/* ─── SECTION HEADERS ─── */
+.sec-head {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-style: italic;
+    text-align: center;
+    color: var(--text-dark);
+    margin-bottom: .5rem;
+}
+
+.divl {
+    width: 80px;
+    height: 4px;
+    background: var(--pink);
+    border-radius: 2px;
+    margin: 1.5rem auto;
+}
+
+/* ─── FOOTER ─── */
+.pfooter {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 3rem 1rem;
+    flex-wrap: wrap;
+}
+/* ─── COVER PHOTOS ─── */
+.page-cover {
+    width: 100%;
+    height: clamp(200px, 30vh, 350px);
+    background-size: cover;
+    background-position: center;
+    border-bottom: 4px solid var(--black);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.page-cover::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.4));
+}
+
+/* ─── SCRAPBOOK STICKERS ─── */
+.sticker {
+    position: absolute;
+    pointer-events: none;
+    z-index: 5;
+    font-size: 2rem;
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.1));
+    user-select: none;
+}
+
+.tape {
+    position: absolute;
+    width: 60px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+    transform: rotate(-5deg);
+    z-index: 10;
+}
+
+.tape::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-left: 2px dashed rgba(0,0,0,0.1);
+    border-right: 2px dashed rgba(0,0,0,0.1);
+}
+
+/* ─── CUSTOM CONFETTI ─── */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: #f00;
+    z-index: 2000;
+    top: -10px;
+    pointer-events: none;
+}
+
+@keyframes confetti-fall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+@keyframes confetti-pop {
+    0% { transform: translate(0, 0) scale(1); opacity: 1; }
+    100% { transform: translate(var(--vx), var(--vy)) scale(0); opacity: 0; }
+}
+
+.pol-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ─── RESPONSIVE UTILITIES ─── */
+@media (max-width: 768px) {
+    .glass-panel {
+        padding: 2rem 1.2rem;
+        border-radius: 30px;
+    }
+
+    .sec-head {
+        font-size: 2.2rem;
+    }
+
+    .pfooter {
+        gap: 1rem;
+        padding: 2rem 1rem;
+    }
+
+    .nav-btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+        width: 100%; /* Stack buttons on very small screens if needed */
+        max-width: 250px;
+        justify-content: center;
+    }
+
+    .sticker {
+        font-size: 1.5rem !important; /* Scale down stickers */
+    }
+}
+
+@media (max-width: 480px) {
+    .glass-panel {
+        padding: 1.5rem 1rem;
+    }
+
+    .sec-head {
+        font-size: 1.8rem;
+    }
+
+    .divl {
+        width: 50px;
+        margin: 1rem auto;
+    }
+}

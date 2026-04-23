@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Vault | Natasha's 18th 💌</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Dancing+Script:wght@500;700&family=Sriracha&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .vault-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            padding: 3rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .envelope-card {
+            background: var(--white);
+            border: 3px solid var(--black);
+            box-shadow: 6px 6px 0 var(--black);
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .envelope-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 10px 10px 0 var(--pink);
+        }
+
+        .env-icon {
+            font-size: 3.5rem;
+            color: var(--pink);
+            margin-bottom: 1.5rem;
+        }
+
+        .env-label {
+            font-family: 'Playfair Display';
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .env-sub {
+            font-family: 'Sriracha';
+            color: var(--text-mid);
+            font-size: 0.9rem;
+        }
+
+        /* Modal / Message Overlay */
+        .message-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            padding: 2rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .message-box {
+            background: #fff9f9;
+            width: 100%;
+            max-width: 500px;
+            padding: 3rem;
+            border: 4px solid var(--black);
+            box-shadow: 12px 12px 0 var(--pink);
+            position: relative;
+            text-align: center;
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-mid);
+        }
+
+        .letter-content {
+            font-family: 'Dancing Script';
+            font-size: 1.8rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+
+        /* Audio Pulse Animation */
+        .voice-indicator {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            margin-top: 1rem;
+        }
+
+        .bar {
+            width: 4px;
+            height: 15px;
+            background: var(--pink);
+            border-radius: 2px;
+            animation: pulse 0.8s ease-in-out infinite;
+        }
+
+        .bar:nth-child(2) { animation-delay: 0.2s; height: 25px; }
+        .bar:nth-child(3) { animation-delay: 0.4s; height: 35px; }
+        .bar:nth-child(4) { animation-delay: 0.2s; height: 25px; }
+
+        @keyframes pulse {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(0.5); }
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            border-radius: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            padding: 2rem 1rem;
+            margin: 2rem auto;
+            max-width: 1250px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+        }
+
+        @media (max-width: 768px) {
+            .vault-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 1.5rem;
+                padding: 2rem 1rem;
+            }
+            .envelope-card {
+                padding: 20px;
+            }
+            .env-icon {
+                font-size: 2.5rem;
+            }
+            .env-label {
+                font-size: 1rem;
+            }
+            .message-box {
+                padding: 2rem 1.5rem;
+                width: 95%;
+            }
+            .letter-content {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body class="grid-bg">
+    <script src="decor.js"></script>
+
+    <div class="sticker" style="top: 20px; left: 10%; transform: rotate(-20deg);">💌</div>
+    <div class="sticker" style="top: 100px; right: 5%; transform: rotate(10deg);">🕊️</div>
+
+    <div class="page-container page-flip-in">
+        <header style="text-align: center; padding-top: 3rem;">
+            <h1 class="sec-head poppy-text"><span>O</span><span>p</span><span>e</span><span>n</span> <span>W</span><span>h</span><span>e</span><span>n</span><span>.</span><span>.</span><span>.</span></h1>
+            <p style="color: var(--text-mid);">A vault of messages for every mood.</p>
+            <div class="divl"></div>
+        </header>
+
+        <div class="glass-panel">
+            <div class="vault-grid">
+            <div class="envelope-card" onclick="openVault('happy')">
+                <div class="env-icon"><i class="fa-solid fa-sun"></i></div>
+                <div class="env-label">Open When Happy</div>
+                <div class="env-sub">Listen to voice note</div>
+            </div>
+
+            <div class="envelope-card" onclick="openVault('sad')">
+                <div class="env-icon"><i class="fa-solid fa-cloud-showers-heavy"></i></div>
+                <div class="env-label">Open When Sad</div>
+                <div class="env-sub">Listen to voice note</div>
+            </div>
+
+            <div class="envelope-card" onclick="openVault('miss')">
+                <div class="env-icon"><i class="fa-solid fa-heart"></i></div>
+                <div class="env-label">Open When You Miss Me</div>
+                <div class="env-sub">Listen to voice note</div>
+            </div>
+
+            <div class="envelope-card" onclick="openVault('tired')">
+                <div class="env-icon"><i class="fa-solid fa-battery-half"></i></div>
+                <div class="env-label">Open When Tired</div>
+                <div class="env-sub">Listen to voice note</div>
+            </div>
+
+            <div class="envelope-card" onclick="openVault('reassurance')">
+                <div class="env-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                <div class="env-label">Open For Reassurance</div>
+                <div class="env-sub">Listen to voice note</div>
+            </div>
+
+            <div class="envelope-card" onclick="openVault('forever')">
+                <div class="env-icon"><i class="fa-solid fa-infinity"></i></div>
+                <div class="env-label">Open For A Promise</div>
+                <div class="env-sub">Listen to voice note</div>
+            </div>
+            </div>
+        </div>
+
+        <footer class="pfooter">
+            <button class="nav-btn btn-secondary" onclick="navigateTo('menu.html')">
+                <i class="fa-solid fa-bars"></i> Menu
+            </button>
+            <button class="nav-btn" onclick="navigateTo('index.html')">
+                <i class="fa-solid fa-house"></i> Home
+            </button>
+        </footer>
+    </div>
+
+    <!-- Message Modal -->
+    <div class="message-overlay" id="overlay" onclick="closeVault(event)">
+        <div class="message-box" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeVault()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="letter-content" id="messageContent"></div>
+            
+            <!-- Voice Indicator -->
+            <div class="voice-indicator" id="voiceIndicator">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <span style="font-family: 'Sriracha'; margin-left: 10px; color: var(--pink);">Listening...</span>
+            </div>
+
+            <audio id="vaultAudio"></audio>
+        </div>
+    </div>
+
+    <script src="music.js"></script>
+    <script>
+        const messages = {
+            happy: "I love seeing you like this… keep smiling, it looks too good on you...lemme catch you not smiling you'll see😏💕",
+            sad: "Come to Daddy💕 I'm always here for you princess💖",
+            miss: "If you’re missing me, just know I’m missing you more… come here already mama💕",
+            tired: "Rest, my love. You’ve done enough for today… I'll be here if you need me by your side",
+            reassurance: "You matter. More than you think, more than you see… and definitely more than you doubt✨...Love you Natasha💕",
+            forever: "It's not like I can go anywhere😏 Love you Mama💖"
+        };
+
+        const audioFiles = {
+            happy: 'voice note/vn happy.ogg',
+            sad: 'voice note/vn 1.ogg',
+            miss: 'voice note/vn miss me .ogg',
+            tired: 'voice note/vn tired.ogg',
+            reassurance: 'voice note/vn reassurance .ogg',
+            forever: 'voice note/vn promise.ogg'
+        };
+
+        const vaultAudio = document.getElementById('vaultAudio');
+        const indicator = document.getElementById('voiceIndicator');
+
+        function openVault(type) {
+            // Set text
+            document.getElementById('messageContent').innerText = messages[type];
+            document.getElementById('overlay').style.display = 'flex';
+
+            // Lower background music
+            if (typeof lowerMusicVolume === 'function') lowerMusicVolume();
+
+            // Play voice note
+            vaultAudio.src = audioFiles[type];
+            vaultAudio.play().then(() => {
+                indicator.style.display = 'flex';
+            }).catch(err => {
+                console.log("Audio file missing or blocked:", err);
+            });
+
+            vaultAudio.onended = () => {
+                indicator.style.display = 'none';
+                if (typeof restoreMusicVolume === 'function') restoreMusicVolume();
+            };
+        }
+
+        function closeVault(event) {
+            vaultAudio.pause();
+            vaultAudio.currentTime = 0;
+            indicator.style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+            if (typeof restoreMusicVolume === 'function') restoreMusicVolume();
+        }
+
+        document.querySelectorAll('.poppy-text span').forEach((span, i) => {
+            span.style.animationDelay = (i * 0.05) + 's';
+        });
+
+        // Floating Bubbles
+        function createBubbles() {
+            const container = document.body;
+            for (let i = 0; i < 15; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'floating-bubble';
+                const size = Math.random() * 60 + 20;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${Math.random() * 100}vw`;
+                bubble.style.setProperty('--x', `${(Math.random() - 0.5) * 200}px`);
+                bubble.style.setProperty('--d', `${Math.random() * 10 + 10}s`);
+                bubble.style.animationDelay = `${Math.random() * 5}s`;
+                container.appendChild(bubble);
+            }
+        }
+        createBubbles();
+
+        // Mouse Parallax for Stickers
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.02;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.02;
+            document.querySelectorAll('.sticker').forEach(sticker => {
+                sticker.style.transform = `translate(${moveX}px, ${moveY}px) rotate(${sticker.dataset.rot || '0'}deg)`;
+            });
+        });
+
+        // Add initial rotation to stickers for parallax
+        document.querySelectorAll('.sticker').forEach(sticker => {
+            const currentRotation = sticker.style.transform.match(/rotate\((.*)deg\)/);
+            if (currentRotation) sticker.dataset.rot = currentRotation[1];
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natasha's Mailbox 📮</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Dancing+Script:wght@500;700&family=Sriracha&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .mailscene {
+            perspective: 2000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 500px;
+            padding: 2rem;
+        }
+
+        .mailbox {
+            width: clamp(320px, 60vw, 700px);
+            height: clamp(200px, 35vw, 420px);
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .mailbox:hover {
+            transform: scale(1.05) rotate(-2deg);
+        }
+
+        .mcard1, .mcard2 {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            border: 3px solid var(--black);
+            border-radius: 8px;
+        }
+
+        .mcard1 {
+            background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+            z-index: 2;
+            transform-origin: left center;
+            transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .mailbox:hover .mcard1 {
+            transform: translate(-50%, -50%) rotateY(-140deg);
+        }
+
+        .mcard2 {
+            background: white;
+            z-index: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .mail-text {
+            font-family: 'Dancing Script';
+            font-size: 1.4rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+            opacity: 0;
+            transition: opacity 0.5s 0.8s;
+        }
+
+        .mailbox:hover .mail-text {
+            opacity: 1;
+        }
+
+        .mail-hint {
+            text-align: center;
+            font-family: 'Sriracha';
+            color: var(--text-mid);
+            margin-top: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+        @media (max-width: 768px) {
+            .mailbox {
+                width: 90vw;
+                height: 300px;
+            }
+            .mcard1, .mcard2 {
+                width: 90%;
+            }
+            .mail-text {
+                font-size: 1.1rem;
+            }
+            .mail-text h3 {
+                font-size: 1.4rem;
+            }
+            .mail-hint {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Active class for mobile tap */
+        .mailbox.active .mcard1 {
+            transform: translate(-50%, -50%) rotateY(-140deg);
+        }
+        .mailbox.active .mail-text {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="grid-bg">
+    <script src="decor.js"></script>
+
+    <!-- Header Stickers -->
+    <div class="sticker" style="top: 20px; left: 5%; transform: rotate(-12deg);">📫</div>
+    <div class="sticker" style="top: 50px; right: 10%; transform: rotate(8deg);">💖</div>
+
+    <div class="page-container page-flip-in">
+        <header style="padding-top: 2rem; text-align: center;">
+            <h1 class="sec-head poppy-text"><span>Y</span><span>o</span><span>u</span><span>r</span> <span>S</span><span>u</span><span>r</span><span>p</span><span>r</span><span>i</span><span>s</span><span>e</span> <span>M</span><span>a</span><span>i</span><span>l</span></h1>
+            <p style="color: var(--text-mid);">Hover the card to see what's inside!</p>
+            <div class="divl"></div>
+        </header>
+
+        <main class="mailscene">
+            <div class="mailbox">
+                <!-- Front Cover -->
+                <div class="mcard1">
+                    <div style="width: 80px; height: 80px; margin-bottom: 1rem; border-radius: 50%; overflow: hidden; border: 2px solid white;">
+                        <img src="assets/N anime.jpeg" alt="Natasha" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="font-family: 'Dancing Script'; font-size: 1.2rem;">To: Natasha</div>
+                    <h2 style="font-family: 'Titan One'; text-transform: uppercase; margin-top: 1rem;">Open Me</h2>
+                </div>
+                <!-- Inside Message -->
+                <div class="mcard2">
+                    <div class="mail-text">
+                        <h3>Happy 18th Natasha! 🥳🎂</h3>
+                        <p>You bring so much warmth and light into every life you touch. Day by day you have become someone truly special and irreplaceable.</p>
+                        <p>I wish you every joy, every dream come true, and all the love this world has to offer. Don't be sad, be happy 😌 You deserve every beautiful thing. 🎈</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="mail-hint">✨ Hover the card to open ✨</div>
+
+        <footer class="pfooter">
+            <button class="nav-btn btn-secondary" onclick="navigateTo('menu.html')">
+                <i class="fa-solid fa-bars"></i> Menu
+            </button>
+            <button class="nav-btn" onclick="navigateTo('memories.html')">
+                Our Memories <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </footer>
+    </div>
+
+    <script src="music.js"></script>
+    <script>
+        document.querySelectorAll('.poppy-text span').forEach((span, i) => {
+            span.style.animationDelay = (i * 0.05) + 's';
+        });
+
+        // Toggle active class for mobile
+        const mb = document.querySelector('.mailbox');
+        mb.addEventListener('click', () => {
+            mb.classList.toggle('active');
+        });
+
+        // Floating Bubbles
+        function createBubbles() {
+            const container = document.body;
+            for (let i = 0; i < 15; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'floating-bubble';
+                const size = Math.random() * 60 + 20;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${Math.random() * 100}vw`;
+                bubble.style.setProperty('--x', `${(Math.random() - 0.5) * 200}px`);
+                bubble.style.setProperty('--d', `${Math.random() * 10 + 10}s`);
+                bubble.style.animationDelay = `${Math.random() * 5}s`;
+                container.appendChild(bubble);
+            }
+        }
+        createBubbles();
+
+        // Mouse Parallax for Stickers
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.02;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.02;
+            document.querySelectorAll('.sticker').forEach(sticker => {
+                sticker.style.transform = `translate(${moveX}px, ${moveY}px) rotate(${sticker.dataset.rot || '0'}deg)`;
+            });
+        });
+
+        // Add initial rotation to stickers for parallax
+        document.querySelectorAll('.sticker').forEach(sticker => {
+            const currentRotation = sticker.style.transform.match(/rotate\((.*)deg\)/);
+            if (currentRotation) sticker.dataset.rot = currentRotation[1];
+        });
+    </script>
+</body>
+</html>

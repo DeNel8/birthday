@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natasha's Chapters 💕</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Dancing+Script:wght@500;700&family=Sriracha&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            padding: 2rem 1rem;
+            margin: 2rem auto;
+            max-width: 1300px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+        }
+
+        .polaroid-card {
+            background: white;
+            padding: 15px 15px 70px;
+            border: 3px solid var(--black);
+            box-shadow: 10px 10px 0 var(--black);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            transform: rotate(var(--rot));
+            opacity: 0;
+            transform: rotate(var(--rot)) translateY(30px);
+        }
+
+        .polaroid-card.visible {
+            opacity: 1;
+            transform: rotate(var(--rot)) translateY(0);
+        }
+
+        .polaroid-card:hover {
+            transform: scale(1.1) rotate(0deg) translateY(-10px);
+            box-shadow: 15px 15px 0 var(--pink);
+            z-index: 10;
+        }
+
+        .pol-preview {
+            width: 100%;
+            height: 240px;
+            background: var(--pink-light);
+            border: 2px solid var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-size: 5rem;
+        }
+
+        .pol-label {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-family: 'Dancing Script';
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .badge {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: var(--pink);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: 'Sriracha';
+            border: 3px solid var(--black);
+            box-shadow: 4px 4px 0 var(--black);
+            transform: rotate(15deg);
+            z-index: 5;
+        }
+
+        .tape-effect {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-5deg);
+            width: 80px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+            z-index: 5;
+            backdrop-filter: blur(2px);
+        }
+
+        .tape-effect::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-left: 2px dashed rgba(0,0,0,0.1);
+            border-right: 2px dashed rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 2rem;
+                padding: 1.5rem;
+            }
+            .pol-preview { height: 180px; font-size: 3rem; }
+            .pol-label { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+
+<body class="grid-bg">
+    <script src="decor.js"></script>
+
+    <!-- Stickers for Header Area -->
+    <div class="sticker" style="top: 20px; left: 10%; transform: rotate(-10deg);">💖</div>
+    <div class="sticker" style="top: 40px; right: 8%; transform: rotate(15deg);">🌹</div>
+    <div class="sticker" style="top: 150px; left: 5%; transform: rotate(-5deg);">🎂</div>
+
+    <div class="page-container page-flip-in">
+        <header style="padding-top: 2rem; text-align: center;">
+            <h1 class="sec-head poppy-text"><span>O</span><span>u</span><span>r</span>
+                <span>S</span><span>t</span><span>o</span><span>r</span><span>y</span>
+            </h1>
+            <p style="color: var(--text-mid); font-size: 1.2rem;">Choose a chapter to begin, Natasha.</p>
+            <div class="divl"></div>
+        </header>
+
+        <div class="glass-panel">
+            <main class="menu-grid">
+                <div class="polaroid-card" style="--rot: -3deg;" onclick="navigateTo('wishes.html')">
+                    <div class="tape-effect"></div>
+                    <div class="pol-preview"><img src="assets/pexels-arlene-k-547915947-16648351.jpg" alt="Wishes"></div>
+                    <div class="pol-label">18 Wishes</div>
+                    <div class="badge">Must See</div>
+                </div>
+
+                <div class="polaroid-card" style="--rot: 2deg;" onclick="navigateTo('reasons.html')">
+                    <div class="tape-effect"></div>
+                    <div class="pol-preview"><img src="assets/Natasha Anime 2.jpeg" alt="Reasons"></div>
+                    <div class="pol-label">18 Reasons</div>
+                </div>
+
+                <div class="polaroid-card" style="--rot: -1deg;" onclick="navigateTo('timeline.html')">
+                    <div class="tape-effect"></div>
+                    <div class="pol-preview">📅</div>
+                    <div class="pol-label">Our Journey</div>
+                </div>
+
+                <div class="polaroid-card" style="--rot: 3deg;" onclick="navigateTo('memories.html')">
+                    <div class="tape-effect"></div>
+                    <div class="pol-preview"><img src="assets/N anime.jpeg" alt="Memories"></div>
+                    <div class="pol-label">Memories</div>
+                    <div class="badge">New</div>
+                </div>
+
+                <div class="polaroid-card" style="--rot: -2deg;" onclick="navigateTo('vault.html')">
+                    <div class="tape-effect"></div>
+                    <div class="pol-preview">💌</div>
+                    <div class="pol-label">Open When...</div>
+                </div>
+
+                <div class="polaroid-card" style="--rot: 1deg;" onclick="navigateTo('letter.html')">
+                    <div class="tape-effect"></div>
+                    <div class="pol-preview"><img src="assets/download.jpg" alt="Letter"></div>
+                    <div class="pol-label">Our Letter</div>
+                </div>
+
+                <div class="polaroid-card" style="--rot: -3deg;" onclick="navigateTo('mailbox.html')">
+                    <div class="tape-effect"></div>
+                    <div class="pol-preview"><img src="assets/SVG Cuts Valentine Mailbox.jpg" alt="Mailbox"></div>
+                    <div class="pol-label">Mailbox</div>
+                </div>
+            </main>
+        </div>
+
+        <footer style="text-align: center; padding-bottom: 4rem;">
+            <button class="nav-btn btn-secondary" onclick="navigateTo('index.html')">
+                <i class="fa-solid fa-arrow-left"></i> Home
+            </button>
+        </footer>
+    </div>
+
+    <script src="music.js"></script>
+    <script>
+        // Staggered reveal for cards
+        document.querySelectorAll('.polaroid-card').forEach((card, i) => {
+            setTimeout(() => {
+                card.classList.add('visible');
+            }, 300 + (i * 100));
+        });
+
+        // Poppy text animation
+        document.querySelectorAll('.poppy-text span').forEach((span, i) => {
+            span.style.animationDelay = (i * 0.05) + 's';
+        });
+
+        // Floating Bubbles
+        function createBubbles() {
+            const container = document.body;
+            for (let i = 0; i < 15; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'floating-bubble';
+                const size = Math.random() * 60 + 20;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${Math.random() * 100}vw`;
+                bubble.style.setProperty('--x', `${(Math.random() - 0.5) * 200}px`);
+                bubble.style.setProperty('--d', `${Math.random() * 10 + 10}s`);
+                bubble.style.animationDelay = `${Math.random() * 5}s`;
+                container.appendChild(bubble);
+            }
+        }
+        createBubbles();
+
+        // Mouse Parallax for Stickers
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.02;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.02;
+            document.querySelectorAll('.sticker').forEach(sticker => {
+                sticker.style.transform = `translate(${moveX}px, ${moveY}px) rotate(${sticker.dataset.rot || '0'}deg)`;
+            });
+        });
+
+        // Add initial rotation to stickers for parallax
+        document.querySelectorAll('.sticker').forEach(sticker => {
+            const currentRotation = sticker.style.transform.match(/rotate\((.*)deg\)/);
+            if (currentRotation) sticker.dataset.rot = currentRotation[1];
+        });
+    </script>
+</body>
+
+</html>
